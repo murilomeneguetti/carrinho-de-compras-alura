@@ -14,7 +14,7 @@ function adicionar(){
     let preco = quantidade.value * valorUnitario;
     console.log(preco);
 
-    let lista = document.getElementById('lista-produtos');
+    //let lista = document.getElementById('lista-produtos');
 
     //calcular o preço, o nosso subtotal
     //adicionar no carrinho
