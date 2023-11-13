@@ -1,3 +1,6 @@
+let totalGeral 
+limpar();
+
 function adicionar(){
     //recuperar nome do produto, quantidade e valor
     let produto = document.getElementById('produto').value;
@@ -8,11 +11,7 @@ function adicionar(){
     //Para pegar o valor, vamos usar a função split, mas separar pelo texto R$ e pegar o que vem após o R$, que é o valor
     let valorUnitario = produto.split('R$')[1];
     let quantidade = document.getElementById('quantidade');
-    console.log(quantidade.value);
-    console.log(nomeProduto);
-    console.log(valorUnitario);
     let preco = quantidade.value * valorUnitario;
-    console.log(preco);
 
     //let lista = document.getElementById('lista-produtos');
 
@@ -23,14 +22,12 @@ function adicionar(){
     if (quantidade.value.length == 0) {
         window.alert('Informe a quantidade a ser adicionada');
     } else {
-        console.log('------');
-        /*
-        console.log(quantidade.value);
-        console.log(nomeProduto);
-        console.log(valorUnitario);*/
+        window.alert('Informe a quantidade a ser adicionada');
     }
 }
 
 function limpar() {
-
+    totalGeral = 0;
+    document.getElementById('lista-produtos').innerHTML = '';
+    document.getElementById('valor-total').textContent = 'R$ 0';
 }
