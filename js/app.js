@@ -11,18 +11,38 @@ function adicionar(){
     //Para pegar o valor, vamos usar a função split, mas separar pelo texto R$ e pegar o que vem após o R$, que é o valor
     let valorUnitario = produto.split('R$')[1];
     let quantidade = document.getElementById('quantidade');
+    console.log(quantidade.value);
+    console.log(nomeProduto);
+    console.log(valorUnitario);
     let preco = quantidade.value * valorUnitario;
+    console.log(preco);
 
-    //let lista = document.getElementById('lista-produtos');
+    let lista = document.getElementById('lista-produtos');
 
     //calcular o preço, o nosso subtotal
     //adicionar no carrinho
     //atualizar o valor total da compra
     
-    if (quantidade.value.length == 0) {
-        window.alert('Informe a quantidade a ser adicionada');
+    if (quantidade.value.length > 0) {
+        //adicionando produto selecionado no carrinho
+        let carrinho = document.getElementById('lista-produtos');
+        carrinho.innerHTML = carrinho.innerHTML + 
+        `<section class="carrinho__produtos__produto">
+            <span class="texto-azul">${quantidade.value}x</span> ${nomeProduto} <span class="texto-azul">R$${preco}</span>
+        </section>`;
+        //atualizar o valor total da compra
+        totalGeral += preco;
+        let campoTotal = document.getElementById('valor-total');
+        //como o campoTotal é uma tag de span, da pra mudar o texto dela com o comando textContent
+        campoTotal.textContent = `R$ ${totalGeral}`;
+        //limpando o campo de quantidade após apertar o botao adicionar
+        quantidade.value = '';
     } else {
         window.alert('Informe a quantidade a ser adicionada');
+        /*
+        console.log(quantidade.value);
+        console.log(nomeProduto);
+        console.log(valorUnitario);*/
     }
 }
 
